@@ -19,8 +19,8 @@
 				<view>
 					<view class="flex-center-start">
 						<view style="color: #B4D0FF; margin-right: 24rpx;">总资产(元)</view>
-						<image @click="look = !look" v-if="!look" class="img" src="../../static/home/eyy.png"></image>
-						<image @click="look = !look" v-if="look" style="height: 22rpx;" class="img" src="../../static/home/eyy2.png"></image>
+						<!-- <image @click="look = !look" v-if="!look" class="img" src="../../static/home/eyy.png"></image>
+						<image @click="look = !look" v-if="look" style="height: 22rpx;" class="img" src="../../static/home/eyy2.png"></image> -->
 					</view>
 					<view class="money">{{look?total_amount:'****'}}</view>
 				</view>
@@ -171,7 +171,7 @@
 		data() {
 			return {
 				list: [],
-				look:false,
+				look:true,
 				bulletin_type:false,
 				tanchu_gg:'',
 				hot_fund:[],
@@ -190,7 +190,9 @@
 		onPullDownRefresh() {
 			this.loadData();
 		},
-		onLoad() {
+
+		async onLoad() {
+			await this.$onLaunched;
 			this.bulletin_type = true;
 			let _this = this;
 			// #ifdef APP-PLUS  
@@ -243,43 +245,10 @@
 			    }
 			  }
 			}) 
-			// #endif
-
-			// _this.helper.post("update_download",{},function(res){
-			//   if(res.data){
-			//     res = res.data;
-			//     var newVersion = res.version;
-			//     //正常用HBuilder测试出来的版本号是HBuilder的版本号，已下是获取自己的版本号
-			//     // plus.runtime.getProperty(plus.runtime.appid, function(wgtinfo){  
-			//     //     console.log(wgtinfo.version);
-			//     // });
-			//     // var nowVersion = plus.runtime.version;
-			//     var nowVersion = _this.helper.nowVersion;
-			//     // var newVersion = "1.0.1";
-			//     console.log("nowVersion:",nowVersion);
-			//     console.log("newVersion:",newVersion);
-			//     var isnew=false;
-			//     var newV = newVersion.split(".",4);
-			//     var nowV = nowVersion.split(".",4);
-			//     // console.log(newV)
-			//     // console.log(nowV)
-			//     for ( var i=0; i<newV.length&&i<nowV.length; i++ ) {
-			//       // console.log(parseInt(newV[i]))
-			//       // console.log(parseInt(nowV[i]))
-			//       if(parseInt(newV[i])<parseInt(nowV[i])){
-			//         break;
-			//       }else if(parseInt(newV[i])>parseInt(nowV[i])){
-			//         isnew = true;
-			//         break;
-			//       }
-			//     }
-			//     // console.log(isnew)
-			//     if(isnew){//新版本
-			//     }
-			//   }
-			// })
+			//#endif
 		},
-		onShow () {
+		async onShow () {
+			await this.$onLaunched;
 			this.loadData();
 			this.helper.post('user/unreadCount',{},(res) => {
 				this.unreadCount = res.data;

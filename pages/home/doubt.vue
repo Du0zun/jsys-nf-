@@ -2,7 +2,8 @@
 	<view class="page">
 		<view class="xian"></view>
 		<view class="title">操作流程</view>
-		<view class="content" v-for="(row,i) in list" :key="i">
+		<video style="width: 100%;margin-top:40rpx" :src="helper.uploadUrl + list.video_url"></video>
+		<!-- <view class="content" v-for="(row,i) in list" :key="i">
 			<view style="padding-left: 50rpx;">
 				<view  @click="choose = row.id" class="item flex-center-between">
 					<view class="text1">{{row.title}}</view>
@@ -12,11 +13,10 @@
 			</view>
 			<view v-if="choose == row.id" class="item_info">
 				<view class="info_box">
-					<!-- <rich-text :nodes="row.content"></rich-text> -->
 					<video style="width: 100%;" :src="helper.uploadUrl + row.video_url"></video>
 				</view>
 			</view>
-		</view>
+		</view> -->
 	</view>
 </template>
 
@@ -43,9 +43,10 @@
 				if (this.page > this.last_page) {
 					return;
 				}
-				this.helper.post('video/index',{category_id:2},(res) => {
-					this.list.push(...res.data.list.data)
-					this.last_page = res.data.list.last_page;
+				this.helper.post('video/detail',{id:6},(res) => {
+					this.list = res.data[0];
+					// this.list.push(...res.data.list.data)
+					// this.last_page = res.data.list.last_page;
 				})
 
 			},

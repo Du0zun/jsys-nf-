@@ -2,19 +2,19 @@ import md5 from '../common/md5.js';
 import store from "../store"
 
 /* #ifdef APP-PLUS */
-const rootUrl = 'http://sysad.51wgx.com/api/';
-const uploadUrl = 'http://sysad.51wgx.com/';
+let rootUrl = '';
+let uploadUrl = '';
 /* #endif */
 
 /* #ifdef H5 */
-const rootUrl = 'http://sysad.51wgx.com/api/';
-const uploadUrl = 'http://sysad.51wgx.com/';
+let rootUrl = '';
+let uploadUrl = '';
 /* #endif */
 
-const nowVersion = "1.0.1";
+let nowVersion = "1.0.3";
 
-const apiRootUrl = rootUrl;
-const invite = 'http://sysad.51wgx.com/';
+let apiRootUrl = rootUrl;
+let invite = '';
 export default {
     rootUrl: rootUrl,
     uploadUrl: uploadUrl,
@@ -29,29 +29,11 @@ export default {
         var timestamp = Date.parse(new Date()) / 1000;
         data.timestamp = timestamp;
         data.lastsession = lastsession;
-        // if(!data.user){
-        // 	data.user = user?user.id:0;
-        // }
-        // var params = new Array();
-        // var i=0;
-        // for (let key in data) {
-        // 	var val = data[key];
-        // 	if(typeof(val) == "object" && Object.prototype.toString.call(val).toLowerCase() == "[object object]"){
-
-        // 	}else if((val||val==="0") && val!="" && val!="undefined" && key!="imgData" && key!="jsonData" && key!='sign') {
-        // 		params[i] = key + "=" + val;
-        // 		i++;
-        // 	}
-        // }
-
-        // params = params.sort();
-        // var pstr = "";
-        // for (let i in params) {
-        // 	pstr += "&" + params[i];
-        // }
-        // pstr = pstr.substring(1) + token;
-        // var sign = md5(pstr);
-        // data.sign=sign;
+    },
+    set_api_upload_Url(url, invite2, uploadUrl2) {
+        apiRootUrl = url;
+        invite = invite2;
+        uploadUrl = uploadUrl2;
     },
     post: function(api, data, succ, error, hideloading) {
         var _this = this;

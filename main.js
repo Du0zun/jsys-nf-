@@ -24,6 +24,9 @@ Vue.prototype.$store = store
 import helper from './common/helper.js'
 Vue.prototype.helper = helper
 
+Vue.prototype.$onLaunched = new Promise(resolve => {
+    Vue.prototype.$isResolve = resolve
+})
 
 Vue.config.productionTip = false
 

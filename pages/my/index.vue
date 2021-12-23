@@ -41,10 +41,10 @@
 				<image class="icon" src="../../static/my/qd.png"></image>
 				<view>签到</view>
 			</view>
-			<navigator :url="'/pages/my/recharge?amount=' + user_data.amount" hover-class="none" class="item">
+			<!-- <navigator :url="'/pages/my/recharge?amount=' + user_data.amount" hover-class="none" class="item">
 				<image class="icon" src="../../static/my/cz.png"></image>
 				<view>充值</view>
-			</navigator>
+			</navigator> -->
 			<navigator :url="'/pages/my/withdraw?amount='+ user_data.amount" hover-class="none" class="item">
 				<image class="icon" src="../../static/my/tx.png"></image>
 				<view>提现</view>
@@ -59,13 +59,13 @@
 				<view class="flex-center-between item1">
 					<view class="flex-center-start">
 						<view>总资产(元)</view>
-						<image @click="look = !look" v-if="!look" class="eyy" src="../../static/my/eyy.png"></image>
-						<image @click="look = !look" v-if="look" style="height: 22rpx;" class="eyy" src="../../static/my/eyy2.png"></image>
+						<!-- <image @click="look = !look" v-if="!look" class="eyy" src="../../static/my/eyy.png"></image>
+						<image @click="look = !look" v-if="look" style="height: 22rpx;" class="eyy" src="../../static/my/eyy2.png"></image> -->
 					</view>
 					<view>收益(元)</view>
 				</view>
 				<view class="flex-center-between item2">
-					<view>{{look?user_data.lc_amount:'****'}}</view>
+					<view>{{look?user_data.all_amount:'****'}}</view>
 					<view>{{look?user_data.moneylog_moneys:'****'}}</view>
 				</view>
 			</view>
@@ -140,7 +140,7 @@
 		data() {
 		    return {
 				attest:false,
-				look:false,
+				look:true,
 				sign_type:false,
 				user_data:'',
 				total_qiandao:'',

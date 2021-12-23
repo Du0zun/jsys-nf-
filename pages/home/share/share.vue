@@ -12,12 +12,25 @@
 					</view>
 				</view>
 			</view>
+			<!-- <view class="box1 flex-center-center">
+				<view class="text1">
+					我的推广链接：{{val}}
+				</view>
+				<view @click="copy(val)" class="copy">复制</view>
+			</view> -->
 			<view class="box1 flex-center-center">
+				<view class="text1">
+					我的推广链接：{{val}}
+				</view>
+				<view @click="copy(val)" class="copy">复制</view>
+			</view>
+			<view class="box1 flex-center-center" style="margin-bottom: 32rpx;">
 				<view class="text1">
 					我的邀請碼：{{user.invicode}}
 				</view>
 				<view @click="copy(user.invicode)" class="copy">复制</view>
 			</view>
+			
 		</view>
 	</view>
 </template>
@@ -34,7 +47,7 @@
 				background: '#FFFFFF', // 背景色
 				foreground: '#000000', // 前景色
 				pdground: '#000000', // 角标色
-				icon: '../../../static/tips.png', // 二维码图标
+				icon: '../../../static/logo.png', // 二维码图标
 				iconsize: 20, // 二维码图标大小
 				lv: 3, // 二维码容错级别 ， 一般不用设置，默认就行
 				onval: true, // val值变化时自动重新生成二维码
@@ -72,8 +85,8 @@
 	.page{
 		overflow: hidden;
 		.bg{
-			width: 100%;
-			height: 100vh;
+			// width: 100%;
+			// height: 100vh;
 			background-image: url(../../../static/share/share.jpg);
 			background-repeat: no-repeat;
 			background-size: 100%;
@@ -99,9 +112,14 @@
 			.box1{
 				margin-top: 32rpx;
 				.text1{
+					width: 500rpx;
 					font-size: 32rpx;
 					font-weight: bold;
 					color: #D68A60;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					overflow: hidden;
+					word-break: break-all;
 				}
 				.copy{
 					margin-left: 36rpx;
