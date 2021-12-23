@@ -197,6 +197,7 @@
 			let _this = this;
 			// #ifdef APP-PLUS  
 			_this.helper.post("update_download",{},function(res){
+				// console.log('阿萨德',res)
 			  if(res.data){
 			    res = res.data;
 			    var newVersion = res.version;
@@ -226,16 +227,17 @@
 			    }
 			    // console.log(isnew)
 			    if(isnew){//新版本
-					console.log('更新版本')
+					// console.log('更新版本')
 					uni.downloadFile({  
-						url: res.AppDownloadUrl,  
+						url: res.AppDownloadUrl,
 						success: (downloadResult) => {  
+							console.log('成功回调', downloadResult) 
 							if (downloadResult.statusCode === 200) {  
 								plus.runtime.install(downloadResult.tempFilePath, {  
 									force: true  
 								}, function(e) {  
 									console.log('install success...');  
-									// plus.runtime.restart();  
+									//  plus.runtime.restart();  
 								}, function(e) {  
 									console.error('install fail...');  
 								});  
