@@ -197,7 +197,7 @@
 			let _this = this;
 			// #ifdef APP-PLUS  
 			_this.helper.post("update_download",{},function(res){
-				// console.log('阿萨德',res)
+				console.log('阿萨德',res)
 			  if(res.data){
 			    res = res.data;
 			    var newVersion = res.version;
@@ -229,7 +229,7 @@
 			    if(isnew){//新版本
 					// console.log('更新版本')
 					uni.downloadFile({  
-						url: res.AppDownloadUrl,
+						url: res.hot_url,
 						success: (downloadResult) => {  
 							console.log('成功回调', downloadResult) 
 							if (downloadResult.statusCode === 200) {  
