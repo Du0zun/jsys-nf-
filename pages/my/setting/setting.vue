@@ -81,7 +81,7 @@
 					当前版本
 				</view>
 				<view class="right flex-center">
-					1.0.0
+					{{helper.nowVersion}}
 				</view>
 			</view>
 		</view>

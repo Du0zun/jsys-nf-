@@ -73,7 +73,8 @@
 				code_key:'',
 		    }
 		},
-		onLoad (e) {
+		async onLoad (e) {
+			await this.$onLaunched;
 			if (e) {
 				this.yqm = e.sc;
 			}

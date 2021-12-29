@@ -53,6 +53,10 @@
 				<image class="icon" src="../../static/my/set.png"></image>
 				<view>设置</view>
 			</navigator>
+			<view @click="kefu()" url="/pages/my/setting/setting"  class="item">
+				<image class="icon" src="../../static/my/kf2.png"></image>
+				<view>客服</view>
+			</view>
 		</view>
 		<view class="money_box">
 			<view class="content">
@@ -91,6 +95,10 @@
 				<image src="../../static/my/symx.png" class="icon"></image>
 				<view>我的基金</view>
 			</navigator>
+			<navigator url="/pages/my/my_equity/my_equity" hover-class="none" class="item">
+				<image src="../../static/my/my_equity.png" class="icon"></image>
+				<view>我的股权</view>
+			</navigator>
 			<navigator url="/pages/my/record/record" hover-class="none" class="item">
 				<image src="../../static/my/jyjl.png" class="icon"></image>
 				<view>交易记录</view>
@@ -99,10 +107,10 @@
 				<image src="../../static/my/tdpm.png" class="icon"></image>
 				<view>团队排名</view>
 			</navigator>
-			<view @click="kefu()" class="item">
+			<!-- <view @click="kefu()" class="item">
 				<image src="../../static/my/kf2.png" class="icon"></image>
 				<view>客服</view>
-			</view>
+			</view> -->
 		</view>
 		<view class="flex-center-center">
 			<image class="logo" src="../../static/my/logo.png"></image>
@@ -163,7 +171,7 @@
 			kefu () {
 				this.jump('/pages/my/kefu?link=' + this.getImLink)
 				//#ifdef H5
-				window.open(this.getImLink)
+				// window.open(this.getImLink)
 				//#endif
 				//#ifdef APP
 				this.jump('/pages/my/kefu?link=' + this.getImLink)
