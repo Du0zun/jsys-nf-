@@ -169,13 +169,14 @@
 		},
 		methods:{
 			kefu () {
-				this.jump('/pages/my/kefu?link=' + this.getImLink)
-				//#ifdef H5
-				// window.open(this.getImLink)
-				//#endif
-				//#ifdef APP
-				this.jump('/pages/my/kefu?link=' + this.getImLink)
-				//#endif
+				this.jump('/pages/my/kefu')
+				// this.jump('/pages/my/kefu?link=' + this.getImLink)
+				// //#ifdef H5
+				// // window.open(this.getImLink)
+				// //#endif
+				// //#ifdef APP
+				// this.jump('/pages/my/kefu?link=' + this.getImLink)
+				// //#endif
 			},
 			loadData () {
 				this.helper.post('user/index',{},(res) => {

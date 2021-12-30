@@ -82,7 +82,7 @@
 				if (this.page > this.last_page) {
 					return;
 				}
-				this.helper.post('user/money/tender/13',{page:this.page},(res) => {
+				this.helper.post('user/money/myProduct/13',{page:this.page},(res) => {
 					this.totalAmount = res.totalAmount;
 					this.yesterdayRevenue = res.yesterdayRevenue;
 					this.totalRevenue = res.totalRevenue;

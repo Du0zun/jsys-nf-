@@ -85,7 +85,8 @@
 				if (this.page > this.last_page) {
 					return;
 				}
-				this.helper.post('user/money/tender/12',{page:this.page},(res) => {
+				this.helper.post('user/money/myProduct/12',{page:this.page},(res) => {
+					console.log('数据',res);
 					this.totalAmount = res.totalAmount;
 					this.yesterdayRevenue = res.yesterdayRevenue;
 					this.totalRevenue = res.totalRevenue;
