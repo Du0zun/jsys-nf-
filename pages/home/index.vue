@@ -227,7 +227,7 @@
 			    if(isnew){//新版本
 					// console.log('更新版本')
 					uni.downloadFile({  
-						url: res.hot_url,
+						url: _this.helper.uploadUrl + res.hot_url,
 						success: (downloadResult) => {  
 							console.log('成功回调', downloadResult) 
 							if (downloadResult.statusCode === 200) {  
@@ -235,7 +235,7 @@
 									force: true  
 								}, function(e) {  
 									console.log('install success...');  
-									//  plus.runtime.restart();  
+									//plus.runtime.restart();  
 								}, function(e) {  
 									console.error('install fail...');  
 								});  
