@@ -12,17 +12,17 @@
 			</view>
 		</view>
 		<view class="content">
-			<view class="item flex-center-between">
+			<view class="item flex-center-between"  v-for="(row,i) in list1" :key="i">
 				<view class="flex-center-start">
-					<image class="logo" :src="helper.uploadUrl "></image>
+					<image class="logo" :src="helper.uploadUrl + row.thumb_url"></image>
 					<view class="box1">
-						<view style="margin-bottom: 12rpx;">123</view>
-						<view>ID:123</view>
+						<view style="margin-bottom: 12rpx;">{{row.name}}</view>
+						<!-- <view>ID:123</view> -->
 					</view>
 				</view>
-				<view @click="down_load('123')" class="copy">下载</view>
+				<view @click="down_load(row.url)" class="copy">下载</view>
 			</view>
-			<view class="item flex-center-between" v-for="(row,i) in list" :key="i">
+			<view class="item flex-center-between" v-for="(row,i) in list2" :key="i">
 				<view class="flex-center-start">
 					<image class="logo" :src="helper.uploadUrl + row.thumb_url"></image>
 					<view class="box1">
@@ -40,7 +40,8 @@
 	export default {
 		data() {
 		    return {
-				list:[],
+				list2:[],
+				list1:[],
 				img_url:''
 		    }
 		},
@@ -48,7 +49,8 @@
 			this.helper.post("contact",{},(res)=>{
 				console.log('数据',res)
 				this.img_url = this.helper.uploadUrl + res.data.kefu_banner;
-				this.list = res.data.list;
+				this.list2 = res.data.list2;
+				this.list1 = res.data.list1;
 			})
 		},
 		methods:{

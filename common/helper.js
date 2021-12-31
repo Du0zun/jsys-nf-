@@ -11,7 +11,7 @@ let rootUrl = '';
 let uploadUrl = '';
 /* #endif */
 
-let nowVersion = "1.0.1";
+let nowVersion = "1.0.2";
 
 let apiRootUrl = rootUrl;
 let invite = '';
