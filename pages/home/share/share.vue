@@ -132,7 +132,7 @@
 			.content{
 				background-color: rgb(18,25,75);
 				padding: 0 30rpx;
-				margin-top: 800rpx;
+				margin-top: 726rpx;
 				overflow: auto;
 				.item{
 					background: #FDFBF8;
@@ -148,7 +148,7 @@
 						background-size: 100%;
 						margin-top: -14rpx;
 						position: absolute;
-						top: 922rpx;
+						top: 848rpx;
 						font-size: 32rpx;
 						font-weight: bold;
 						color: #D68A60;

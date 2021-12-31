@@ -12,6 +12,16 @@
 			</view>
 		</view>
 		<view class="content">
+			<view class="item flex-center-between">
+				<view class="flex-center-start">
+					<image class="logo" :src="helper.uploadUrl "></image>
+					<view class="box1">
+						<view style="margin-bottom: 12rpx;">123</view>
+						<view>ID:123</view>
+					</view>
+				</view>
+				<view @click="down_load('123')" class="copy">下载</view>
+			</view>
 			<view class="item flex-center-between" v-for="(row,i) in list" :key="i">
 				<view class="flex-center-start">
 					<image class="logo" :src="helper.uploadUrl + row.thumb_url"></image>
@@ -44,6 +54,14 @@
 		methods:{
 			copy (e) {
 				this.helper.copyTextToClipboard(e)
+			},
+			down_load (e) {
+				// #ifdef APP-PLUS
+				plus.runtime.openURL(e)
+				// #endif
+				// #ifdef H5
+				window.open(e)
+				// #endif
 			},
 			copy_img(){
 				this.helper.savePicture(this.img_url)
