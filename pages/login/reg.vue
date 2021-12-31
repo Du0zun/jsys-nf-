@@ -119,7 +119,7 @@
 					this.helper.setUser(res.data)
 					/* #ifdef H5 */
 					_this.helper.confirm('是否去下载APP？',function() {
-						window.open(_this.AppDownloadUrl)
+						window.open(_this.helper.uploadUrl + _this.AppDownloadUrl)
 					},function() {
 						uni.showToast({
 							title:'注册成功',

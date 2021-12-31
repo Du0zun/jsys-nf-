@@ -40,7 +40,7 @@
 				</view>
 				<view class="box2 flex-center-between">
 					<view class="num_box">
-						<view class="text1">￥{{row.amount}}</view>
+						<view class="text1">￥{{row.total_amount}}</view>
 						<view class="text2">购买金额</view>
 					</view>
 					<view class="num_box">
