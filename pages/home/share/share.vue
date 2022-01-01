@@ -82,7 +82,7 @@
 		},
 		onLoad (e) {
 			this.helper.post("update_download",{},(res)=>{
-				this.AppDownloadUrl = this.helper.uploadUrl + res.data.AppDownloadUrl;
+				this.AppDownloadUrl = res.data.AppDownloadUrl;
 			})
 			this.val = this.helper.invite + '#/pages/login/reg?sc=' + this.user.invicode;
 		},

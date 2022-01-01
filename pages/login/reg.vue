@@ -42,6 +42,19 @@
 				</view>
 			</view>
 			<view class="item">
+				<view class="text1">支付密码</view>
+				<view class="box flex-center-between">
+					<view class="flex-center-start">
+						<image class="icon" src="../../static/login/pwd.png"></image>
+						<input v-if="!look" v-model="paypwd" type="password" placeholder="请输入支付密码" />
+						<input v-if="look" v-model="paypwd" type="text" placeholder="请输入支付密码" />
+					</view>
+					
+					<image @click="look = !look" v-if="!look" class="icon2" src="../../static/login/eyy.png"></image>
+					<image @click="look = !look" v-if="look" style="height: 22rpx;" class="icon2" src="../../static/login/eyy2.png"></image>
+				</view>
+			</view>
+			<view class="item">
 				<view class="text1">邀请码</view>
 				<view class="box flex-center-start">
 					<image class="icon" src="../../static/login/yqm.png"></image>
@@ -67,6 +80,7 @@
 				code:'',
 				code2:'',
 				pwd:'',
+				paypwd:'',
 				yqm:'',
 				AppDownloadUrl: '',
 				code_url:'',
@@ -104,12 +118,17 @@
 					this.helper.toast('请输入密码!')
 					return
 				}
+				if(!this.paypwd) {
+					this.helper.toast('请输入支付密码!')
+					return
+				}
 				if(!this.yqm) {
 					this.helper.toast('请输入邀请码!')
 					return
 				}
 				let data = {
 					password:this.pwd,
+					paypass:this.paypwd,
 					phone:this.phone,
 					code:this.code,
 					invicode:this.yqm
@@ -119,7 +138,7 @@
 					this.helper.setUser(res.data)
 					/* #ifdef H5 */
 					_this.helper.confirm('是否去下载APP？',function() {
-						window.open(_this.helper.uploadUrl + _this.AppDownloadUrl)
+						window.open(_this.AppDownloadUrl)
 					},function() {
 						uni.showToast({
 							title:'注册成功',
