@@ -156,7 +156,7 @@
 					<image @click="bulletin_type = !bulletin_type" class="cha" src="../../static/cha.png"></image>
 					<view class="text1">公告</view>
 					<view class="text2">
-						{{tanchu_gg}}
+						<rich-text :nodes="tanchu_gg"></rich-text>
 					</view>
 				</view>
 			</view>

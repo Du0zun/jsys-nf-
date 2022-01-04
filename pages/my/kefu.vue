@@ -1,6 +1,7 @@
 <template>
 	<view class="page">
-		<view class="xian"></view>
+		<web-view :src="link_url"></web-view>
+<!-- 		<view class="xian"></view>
 		<view class="flex-center-center">
 			<view class="head">
 				<view class="flex-center-center">
@@ -17,7 +18,6 @@
 					<image class="logo" :src="helper.uploadUrl + row.thumb_url"></image>
 					<view class="box1">
 						<view style="margin-bottom: 12rpx;">{{row.name}}</view>
-						<!-- <view>ID:123</view> -->
 					</view>
 				</view>
 				<view @click="down_load(row.url)" class="copy">下载</view>
@@ -32,7 +32,7 @@
 				</view>
 				<view @click="copy(row.value)" class="copy">复制</view>
 			</view>
-		</view>
+		</view> -->
 	</view>
 </template>
 
@@ -42,16 +42,21 @@
 		    return {
 				list2:[],
 				list1:[],
-				img_url:''
+				img_url:'',
+				link_url:''
 		    }
 		},
 		onLoad() {
-			this.helper.post("contact",{},(res)=>{
+			this.helper.post("user/getImLink",{},(res)=>{
 				console.log('数据',res)
-				this.img_url = this.helper.uploadUrl + res.data.kefu_banner;
-				this.list2 = res.data.list2;
-				this.list1 = res.data.list1;
+				this.link_url = res.data;
 			})
+			// this.helper.post("contact",{},(res)=>{
+			// 	console.log('数据',res)
+			// 	this.img_url = this.helper.uploadUrl + res.data.kefu_banner;
+			// 	this.list2 = res.data.list2;
+			// 	this.list1 = res.data.list1;
+			// })
 		},
 		methods:{
 			copy (e) {

@@ -97,7 +97,7 @@
 				let data = {
 					paypwd:this.password.join(''),//	123456	string	否	密码
 					amount:this.money,//	120	string	否	金额
-					bankid:18198,//	18194	string	否	暂无描述
+					bankid:this.bank.id,//	18194	string	否	暂无描述
 				}
 				this.helper.post('user/withdraw',data,(res) => {
 					this.helper.toast(res.msg)
